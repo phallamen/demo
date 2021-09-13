@@ -1,17 +1,22 @@
 pipeline{
   agent any;
   tools {
-        maven 'maven' 
+        maven 'maven'
     }
   stages{
     stage("Code Review"){
       steps{
           echo "Code reviewing, hold on!"
+          withSonarQubeEnv('sonarqube'){
+            sh "sonar-scanner " 
+             
+          }
       }
     }
     stage("Building App"){
       steps{
-        sh 'mvn --version'
+        sh 'mvn clean package'
+        
       }
     }
   }
