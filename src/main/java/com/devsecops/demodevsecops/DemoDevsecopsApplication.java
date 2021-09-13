@@ -8,6 +8,7 @@ public class DemoDevsecopsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoDevsecopsApplication.class, args);
+                printf("hello bro");
 	}
 
 }
