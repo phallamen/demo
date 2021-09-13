@@ -4,6 +4,12 @@ pipeline{
         maven 'maven'
     }
   stages{
+    stage("Building App"){
+      steps{
+        sh 'mvn clean package'
+        
+      }
+    }
     stage("Code Review"){
       steps{
           echo "Code reviewing, hold on!"
@@ -11,12 +17,6 @@ pipeline{
             sh "sonar-scanner " 
              
           }
-      }
-    }
-    stage("Building App"){
-      steps{
-        sh 'mvn clean package'
-        
       }
     }
   }
